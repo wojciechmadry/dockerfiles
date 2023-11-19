@@ -52,6 +52,7 @@ docker start <CONTAINER_NAME>
 ```
 ---
 Remove container:
+
 ```sh
 docker container rm <CONTAINER_NAME>
 ```
@@ -59,11 +60,32 @@ docker container rm <CONTAINER_NAME>
 # Dockerfiles list
 
 ### [IDA](https://hex-rays.com/ida-free/)
+
+Build:
+
 ```sh
 make ida
 ```
 
+Run example:
+
+```sh
+xhost +local:docker
+docker run -itd --privileged --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name ida ida ida64
+docker start ida
+```
+
 ### [balenaEtcher](https://etcher.balena.io)
+
+Build:
 ```sh
 make etcher
+```
+
+Run example:
+
+```sh
+xhost +local:docker
+docker run -itd --privileged --env="DISPLAY" --volume="/dev:/dev" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name etcher etcher /ws/etcher.AppImage
+docker start etcher
 ```
