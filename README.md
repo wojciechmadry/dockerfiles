@@ -63,3 +63,7 @@ docker container rm <CONTAINER_NAME>
 make ida
 ```
 
+### [balenaEtcher](https://etcher.balena.io)
+```sh
+make etcher
+```

@@ -1,0 +1,21 @@
+FROM ubuntu:22.04
+
+RUN apt update \
+    && apt install -y \
+      wget \
+      fuse \
+      libfuse2 \
+      libglib2.0-0 \
+      libnss3 \
+      libatk1.0-0 \
+      libatk-bridge2.0-0 \
+      libcups2 \
+      libdrm-dev \
+      libgtk-3-dev \
+      libasound2
+
+WORKDIR /ws
+
+RUN wget https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-1.18.11-x64.AppImage \
+    && chmod +x balenaEtcher-1.18.11-x64.AppImage \
+    && mv balenaEtcher-1.18.11-x64.AppImage etcher.AppImage
