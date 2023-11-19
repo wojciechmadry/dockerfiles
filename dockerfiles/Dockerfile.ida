@@ -1,0 +1,46 @@
+FROM ubuntu:22.04
+
+RUN dpkg --add-architecture i386 \
+    && apt update \
+    && apt install -y \
+      libc6-i686:i386 \
+      libexpat1:i386 \
+      libfontconfig1:i386 \
+      libfreetype6:i386 \
+      libgcc1:i386 \
+      libglib2.0-0:i386 \
+      libice6:i386 \
+      libpcre3:i386 \
+      libsm6:i386 \
+      libstdc++6:i386 \
+      libuuid1:i386 \
+      libx11-6:i386 \
+      libxau6:i386 \
+      libxcb1:i386 \
+      libxdmcp6:i386 \
+      libxext6:i386 \
+      libxrender1:i386 \
+      zlib1g:i386 \
+      libx11-xcb1:i386 \
+      libdbus-1-3:i386 \
+      libxi6:i386 \
+      libsm6:i386 \
+      libgtk2.0-0:i386 \
+      gtk2-engines-murrine:i386 \
+      gtk2-engines-pixbuf:i386 \
+      libpango1.0-0:i386 \
+      wget \
+      ffmpeg \
+      libsm6 \
+      libxext6 \
+      qtbase5-dev
+
+WORKDIR /ws
+
+RUN wget https://out7.hex-rays.com/files/idafree83_linux.run \
+    && chmod +x idafree83_linux.run \
+    && yes | ./idafree83_linux.run \
+    && mv y /opt/idafree-8.3 \
+    && rm idafree83_linux.run
+
+ENV PATH="${PATH}:/opt/idafree-8.3"
