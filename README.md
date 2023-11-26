@@ -89,3 +89,18 @@ xhost +local:docker
 docker run -itd --privileged --env="DISPLAY" --volume="/dev:/dev" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name etcher etcher /ws/etcher.AppImage
 docker start etcher
 ```
+
+### ssh
+
+Build:
+```sh
+make ssh
+```
+
+Run example:
+
+```sh
+docker run -itd --name ssh ssh /bin/sh
+docker start ssh
+docker exec -it ssh ssh {USER}@{IP}
+```
