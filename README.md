@@ -78,6 +78,7 @@ docker start ida
 ### [balenaEtcher](https://etcher.balena.io)
 
 Build:
+
 ```sh
 make etcher
 ```
@@ -93,6 +94,7 @@ docker start etcher
 ### ssh
 
 Build:
+
 ```sh
 make ssh
 ```
@@ -104,3 +106,20 @@ docker run -itd --name ssh ssh /bin/sh
 docker start ssh
 docker exec -it ssh ssh {USER}@{IP}
 ```
+
+### [KiCad](https://www.kicad.org/)
+
+Build:
+
+```sh
+make kicad
+```
+
+Run example:
+
+```sh
+xhost +local:docker
+docker run -itd --privileged --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name kicad kicad kicad
+docker start kicad
+```
+
