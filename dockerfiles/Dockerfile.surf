@@ -1,0 +1,29 @@
+FROM alpine
+
+WORKDIR /ws
+
+RUN apk add --no-cache \
+          make \
+          gcc \
+          git \
+          pkgconfig \
+          libx11-dev \
+          gtk+3.0-dev \
+          gcr-dev \
+          webkit2gtk-dev \
+          libc-dev \
+          mesa-dri-gallium \
+          vulkan-loader \
+          mesa-vulkan-intel \
+          mesa-vulkan-ati \
+          ttf-dejavu \
+          ttf-liberation
+
+RUN git clone https://git.suckless.org/surf \
+    && cd surf \
+    && make clean install
+
+RUN apk del gcc git make \
+    && apk cache clean
+
+ENTRYPOINT [ "surf", "https://www.deepl.com/translator"]
