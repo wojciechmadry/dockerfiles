@@ -4,6 +4,7 @@ help:
 	@echo make etcher	-	Build balenaEtcher program
 	@echo make ssh	-	Build minimal ssh client
 	@echo make kicad	-	Build KiCad program
+	@echo make surf	-	Build surf webbrowser
 
 ida:
 	docker build -t ida -f dockerfiles/Dockerfile.ida .
@@ -16,3 +17,6 @@ ssh:
 
 kicad:
 	docker build -t kicad -f dockerfiles/Dockerfile.kicad .
+
+surf:
+	docker build -t surf -f dockerfiles/Dockerfile.surf .

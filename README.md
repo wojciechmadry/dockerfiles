@@ -123,3 +123,20 @@ docker run -itd --privileged --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-
 docker start kicad
 ```
 
+### [surf](https://surf.suckless.org/)
+
+Default page is: [deepl](https://www.deepl.com/translator)
+
+Build:
+
+```sh
+make surf
+```
+
+Run example:
+
+```sh
+xhost +local:docker
+docker run -itd --env="DISPLAY" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --name surf surf
+docker start surf
+```
