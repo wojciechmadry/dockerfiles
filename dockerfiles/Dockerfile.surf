@@ -26,4 +26,6 @@ RUN git clone https://git.suckless.org/surf \
 RUN apk del gcc git make \
     && apk cache clean
 
+ENV WEBKIT_DISABLE_COMPOSITING_MODE 1
+
 ENTRYPOINT [ "surf", "https://www.deepl.com/translator"]
